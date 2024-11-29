@@ -1,0 +1,53 @@
+Option Explicit
+
+'Âûâåñòè â äèàëîãîâîå îêíî òàáëèöó óìíîæåíèÿ.
+ 
+Sub tabl()
+Dim i, a, j As Integer, st, sp As String
+For i = 1 To 9
+For j = 1 To 9
+If i * j < 10 Then
+st = st + "  " + CStr(i * j) & "  "
+Else
+st = st + "  " + CStr(i * j) & ""
+End If
+If j = 9 Then
+st = st & vbNewLine ' vbNewLine êîíñòàíòà
+Exit For
+End If
+Next j
+Next i
+MsgBox st
+End Sub
+Sub z2()
+Dim kol As Integer, i As Integer, j As Integer, n, m, qol As Integer
+n = Val(InputBox("VVedite znachenie stroky"))
+m = Val(InputBox("Vvedite znachenie stolb"))
+kol = 0
+For i = 1 To n
+For j = 1 To m
+Randomize
+qol = Int(100 * Rnd)
+If qol = 0 Then
+kol = kol + 1
+End If
+Next j
+Next i
+MsgBox kol
+End Sub
+Sub z3()
+Dim max, min As Variant, n, m, q, i, j, a As Integer
+n = Val(InputBox("VVedite znachenie stroky"))
+m = Val(InputBox("Vvedite znachenie stolb"))
+min = 0
+max = -1
+Randomize
+For i = 1 To n
+For j = 1 To m
+q = Int(100 * Rnd)
+If q > max Then max = q
+If q < min Then min = q
+Next j
+Next i
+MsgBox "Ìàêñèìàëüíîå - " & max & vbNewLine & "Ìèíèìàëüíîå - " & min
+End Sub
